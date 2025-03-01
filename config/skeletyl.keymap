@@ -22,9 +22,9 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp B             &kp L        &kp D               &kp W              &kp Z              
-&none  &kp N  &kp R  &kp T   &kp S       &kp G              
-&none  &kp Q             &kp X        &kp M               &kp C              &kp V              
+&kp B             &kp L        &kp D               &kp W              &kp Z              
+&kp N  &kp R  &kp T   &kp S       &kp G              
+&kp Q             &kp X        &kp M               &kp C              &kp V              
                                       &kp ESCAPE  &kp SPACE  &kp TAB
             >;
         };
