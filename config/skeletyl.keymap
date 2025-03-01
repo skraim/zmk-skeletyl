@@ -25,7 +25,7 @@
 &none  &kp B             &kp L        &kp D               &kp W              &kp Z              
 &none  &kp N  &kp R  &kp T   &kp S       &kp G              
 &none  &kp Q             &kp X        &kp M               &kp C              &kp V              
-                                      &hold_tap 1 ESCAPE  &hold_tap 2 SPACE  &hold_tap 3 TAB
+                                      &kp ESCAPE  &kp SPACE  &kp TAB
             >;
         };
     };
