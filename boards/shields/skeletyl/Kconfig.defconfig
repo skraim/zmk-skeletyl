@@ -1,6 +1,13 @@
-if SHIELD_SKELETYL
+if SHIELD_SKELETYL_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "Skeletyl"
+
+endif
+
+if SHIELD_SKELETYL_LEFT || SHIELD_SKELETYL_RIGHT
+
+config ZMK_SPLIT
+    default y
 
 endif

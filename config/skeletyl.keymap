@@ -9,6 +9,93 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        hrm: hrm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            flavor = "balanced";
+            quick-tap-ms = <230>;
+            hold-trigger-on-release;
+            require-prior-idle-ms = <80>;
+        };
+
+        hold_tap: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            flavor = "balanced";
+            quick-tap-ms = <230>;
+            hold-trigger-on-release;
+            require-prior-idle-ms = <80>;
+        };
+
+        cw: cw {
+            compatible = "zmk,behavior-caps-word";
+            label = "CW";
+            #binding-cells = <0>;
+            continue-list = <Q W F P B A R S T G Z X C D V J L U Y SEMICOLON M N E I O K H COMMA DOT BACKSLASH SLASH RIGHT_BRACKET LEFT_BRACKET SINGLE_QUOTE APOSTROPHE BACKSPACE>;
+        };
+
+        hrmp: hrmp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRMP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <230>;
+            require-prior-idle-ms = <80>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        ua_yi {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <2 3>;
+        };
+
+        ua_ap {
+            bindings = <&kp GRAVE>;
+            key-positions = <26 27>;
+        };
+
+        ua_kh {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <8 9>;
+        };
+
+        ua_ye {
+            bindings = <&kp SEMICOLON>;
+            key-positions = <32 33>;
+        };
+
+        ua_g {
+            bindings = <&kp BACKSLASH>;
+            key-positions = <7 8>;
+        };
+
+        rgui {
+            bindings = <&kp CAPS>;
+            key-positions = <14 15 16>;
+        };
+
+        rgui2 {
+            bindings = <&kp CAPS>;
+            key-positions = <19 20 21>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -22,10 +109,74 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp B             &kp L        &kp D               &kp W              &kp Z              
-&kp N  &kp R  &kp T   &kp S       &kp G              
-&kp Q             &kp X        &kp M               &kp C              &kp V              
- &kp O             &kp U                                     &kp ESCAPE  &kp SPACE  &kp TAB
+&kp B             &kp L        &kp D               &kp W              &kp Z              &kp SQT            &kp F                  &kp O               &kp U            &kp J             
+&hrmp LEFT_ALT N  &hrm LGUI R  &hrm LEFT_SHIFT T   &hrm LCTRL S       &kp G              &kp Y              &hrm RCTRL H           &hrm RIGHT_SHIFT A  &hrm LEFT_GUI E  &hrmp LEFT_ALT I  
+&kp Q             &kp X        &kp M               &kp C              &kp V              &kp K              &kp P                  &kp COMMA           &kp DOT          &kp FSLH          
+                                      &hold_tap 1 ESCAPE  &hold_tap 2 SPACE  &hold_tap 3 TAB    &hold_tap 4 ENTER  &hold_tap 2 BACKSPACE  &hold_tap 5 DELETE
+            >;
+        };
+
+        num_bt {
+            display-name = "num";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&bt BT_CLR  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &kp PLUS   &kp N7        &kp N8        &kp N9  &kp KP_MULTIPLY  
+&trans      &trans  &trans        &trans        &trans          &kp MINUS  &kp N4        &kp N5        &kp N6  &kp FSLH         
+&trans      &trans  &trans        &trans        &trans          &kp DOT    &kp NUMBER_1  &kp NUMBER_2  &kp N3  &kp EQUAL        
+                           &trans        &trans        &trans          &trans     &kp N0        &kp COMMA
+            >;
+        };
+
+        symb {
+            display-name = "symb";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp EXCL             &kp AT               &kp HASH                          &kp DLLR                      &kp PRCNT            &kp CARET  &kp AMPERSAND            &kp ASTERISK                    &kp QUESTION              &kp SQT                     
+&hrmp LEFT_ALT PLUS  &hrm LEFT_GUI EQUAL  &hrm LEFT_SHIFT LEFT_PARENTHESIS  &hrm LCTRL RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES    &kp COLON  &hrm RCTRL LEFT_BRACKET  &hrm RIGHT_SHIFT RIGHT_BRACKET  &hrm LEFT_GUI LEFT_BRACE  &hrmp LEFT_ALT RIGHT_BRACE  
+&kp LESS_THAN        &kp PIPE             &kp MINUS                         &kp GREATER_THAN              &kp BSLH             &kp GRAVE  &kp UNDERSCORE           &kp FSLH                        &kp TILDE                 &kp SEMI                    
+                                                 &trans                            &trans                        &trans               &trans     &trans                   &trans
+            >;
+        };
+
+        func {
+            display-name = "func";
+            bindings = <
+&trans  &trans  &trans       &trans  &trans    &kp PRINTSCREEN  &kp F7  &kp F8  &kp F9  &kp F10  
+&trans  &trans  &trans       &trans  &trans    &cw              &kp F4  &kp F5  &kp F6  &kp F11  
+&trans  &trans  &trans       &trans  &trans    &trans           &kp F1  &kp F2  &kp F3  &kp F12  
+                        &bootloader  &trans  &trans    &trans           &trans  &trans
+            >;
+        };
+
+        nav {
+            display-name = "nav";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans    &trans    &kp END    &kp HOME     &trans     &trans  
+&trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN   &kp UP       &kp RIGHT  &trans  
+&trans  &trans  &trans  &trans  &trans    &trans    &kp PG_DN  &kp PG_UP    &trans     &trans  
+                        &trans  &trans  &trans    &trans    &trans     &bootloader
+            >;
+        };
+
+        media {
+            display-name = "media";
+            bindings = <
+&trans  &trans      &kp C_VOLUME_UP  &trans            &trans    &trans  &trans  &trans  &trans  &trans  
+&trans  &kp K_PREV  &kp C_VOL_DN     &kp K_NEXT        &trans    &trans  &trans  &trans  &trans  &trans  
+&trans  &trans      &kp K_MUTE       &trans            &trans    &trans  &trans  &trans  &trans  &trans  
+                            &trans           &kp K_PLAY_PAUSE  &trans    &trans  &trans  &trans
             >;
         };
     };
