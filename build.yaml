@@ -21,5 +21,6 @@
 include:
   - board: nice_nano_v2
     shield: skeletyl_left
+    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"Skeletyl\" 
   - board: nice_nano_v2
     shield: skeletyl_right
