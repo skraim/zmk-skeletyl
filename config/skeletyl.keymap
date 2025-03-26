@@ -146,7 +146,7 @@
         };
 
         func {
-            display-name = "functions";
+            display-name = "func";
             bindings = <
 &trans  &trans     &trans       &kp LC(W)  &kp LC(Z)  &kp PRINTSCREEN  &kp F7  &kp F8  &kp F9  &kp F10
 &trans  &trans     &trans       &kp LC(S)  &trans     &caps_word       &kp F4  &kp F5  &kp F6  &kp F11
@@ -156,7 +156,7 @@
         };
 
         nav {
-            display-name = "navigation";
+            display-name = "nav";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &kp END    &kp HOME     &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN   &kp UP       &kp RIGHT  &trans
