@@ -24,3 +24,5 @@ include:
     cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"Skeletyl\" 
   - board: nice_nano_v2
     shield: skeletyl_right
+  - board: seeeduino_xiao_ble
+    shield: skeletyl_dongle prospector_adapter
