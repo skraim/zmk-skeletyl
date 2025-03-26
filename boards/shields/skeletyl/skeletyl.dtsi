@@ -3,7 +3,7 @@
 
 / {
     chosen {
-        zephyr,display = &oled;
+       // zephyr,display = &oled;
         zmk,physical-layout = &layout;
     };
 

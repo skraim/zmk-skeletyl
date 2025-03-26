@@ -1,15 +1,11 @@
 #include "skeletyl.dtsi"
 
-&transform {
-    col-offset = <5>;
-};
-
 / {
     chosen {
         zmk,kscan = &kscan;
     };
 
-    kscar: kscan {
+    kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         wakeup-source;
@@ -25,4 +21,8 @@
                     <&pro_micro 20 GPIO_ACTIVE_HIGH>,
                     <&pro_micro 21 GPIO_ACTIVE_HIGH>;
     };
+};
+
+&transform {
+    col-offset = <5>;
 };
