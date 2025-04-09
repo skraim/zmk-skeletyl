@@ -26,3 +26,7 @@ include:
     shield: skeletyl_right
   - board: seeeduino_xiao_ble
     shield: skeletyl_dongle prospector_adapter
+  - board: seeeduino_xiao_ble 
+    shield: settings_reset
+  - board: nice_nano_v2
+    shield: settings_reset
