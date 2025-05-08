@@ -149,7 +149,7 @@
             display-name = "func";
             bindings = <
 &trans  &trans     &trans       &kp LC(W)  &kp LC(Z)  &kp PRINTSCREEN  &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &trans     &trans       &kp LC(S)  &trans     &caps_word       &kp F4  &kp F5  &kp F6  &kp F11
+&trans  &trans     &trans       &trans     &trans     &caps_word       &kp F4  &kp F5  &kp F6  &kp F11
 &trans  &kp LC(X)  &trans       &kp LC(C)  &kp LC(V)  &trans           &kp F1  &kp F2  &kp F3  &kp F12
                    &bootloader  &trans     &trans     &trans           &trans  &trans
             >;
